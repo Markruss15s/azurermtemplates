@@ -21,6 +21,9 @@ echo "server.1=${2}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
 echo "server.2=${3}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
 echo "server.3=${4}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
 
+echo ${!ID} | sudo tee /etc/mesos-master/ip
+sudo cp /etc/mesos-master/ip /etc/mesos-master/hostname
+
 echo "---                    ---"
 echo "--- Starting ZooKeeper ---"
 echo "---                    ---"
